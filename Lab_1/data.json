@@ -1,16 +1,26 @@
 {
   "Albums": [
     {
+      "genre": "Rock",
       "nameArtist": "The Beatles",
       "nameAlbum": "Get Back",
       "tracks": [
-        { "nameTrack": "Get Back" },
-        { "nameTrack": "Don't Let Me Down" },
-        { "nameTrack": "I've Got A Feeling" },
-        { "nameTrack": "One After 909" }
+        {
+          "nameTrack": "Get Back"
+        },
+        {
+          "nameTrack": "Don't Let Me Down"
+        },
+        {
+          "nameTrack": "I've Got A Feeling"
+        },
+        {
+          "nameTrack": "One After 909"
+        }
       ]
     },
     {
+      "genre": "Rock",
       "nameArtist": "The Beatles",
       "nameAlbum": "Let It Be",
       "tracks": [
@@ -29,14 +39,15 @@
       ]
     },
     {
+      "genre": "Hip-hop",
       "nameArtist": "Eminem",
       "nameAlbum": "Last One Standing",
       "tracks": [
         {
-          "nameTrack": "Last One Standing"
+          "nameTrack": "Last One "
         },
         {
-          "nameTrack": "Venom" 
+          "nameTrack": "Venom"
         }
       ]
     },
@@ -71,7 +82,9 @@
         {
           "nameTrack": "Fat Bottomed Girs"
         },
-        { "nameTrack": "Under Pressur" }
+        {
+          "nameTrack": "Under Pressur"
+        }
       ]
     },
     {
@@ -87,13 +100,19 @@
         {
           "nameTrack": "Killer Queen"
         },
-        { "nameTrack": "Liar" }
+        {
+          "nameTrack": "Liar"
+        }
       ]
     },
     {
       "nameArtist": "Michael Jackson",
       "nameAlbum": "Bad",
-      "tracks": [ { "nameTrack": "Bad" } ]
+      "tracks": [
+        {
+          "nameTrack": "Bad"
+        }
+      ]
     },
     {
       "nameArtist": "Michael Jackson",
@@ -105,7 +124,9 @@
         {
           "nameTrack": "Cinderella Stay Awhile"
         },
-        { "nameTrack": "Dapper Dan" }
+        {
+          "nameTrack": "Dapper Dan"
+        }
       ]
     },
     {
@@ -118,7 +139,9 @@
         {
           "nameTrack": "God Control"
         },
-        { "nameTrack": "Dark Ballet" }
+        {
+          "nameTrack": "Dark Ballet"
+        }
       ]
     },
     {
@@ -134,7 +157,9 @@
         {
           "nameTrack": "In This Live"
         },
-        { "nameTrack": "Rain" }
+        {
+          "nameTrack": "Rain"
+        }
       ]
     },
     {
@@ -150,7 +175,9 @@
         {
           "nameTrack": "Ol' 55"
         },
-        { "nameTrack": "Love Will Keep Us Alive" }
+        {
+          "nameTrack": "Love Will Keep Us Alive"
+        }
       ]
     },
     {
@@ -166,7 +193,9 @@
         {
           "nameTrack": "Already Gone"
         },
-        { "nameTrack": "Twenty One" }
+        {
+          "nameTrack": "Twenty One"
+        }
       ]
     }
   ],
@@ -254,6 +283,266 @@
           "nameTrack": "Darkness"
         }
       ]
+    }
+  ],
+  "Tracks": [
+    {
+      "nameTrack": "Get Back",
+      "nameAlbum": "Get Back",
+      "genre": "Rock",
+      "nameArtist": "The Beatles"
+    },
+    {
+      "nameTrack": "Don't Let Me Down",
+      "nameAlbum": "Get Back",
+      "genre": "Rock",
+      "nameArtist": "The Beatles"
+    },
+    {
+      "nameTrack": "I've Got A Feeling",
+      "nameAlbum": "Get Back",
+      "genre": "Rock",
+      "nameArtist": "The Beatles"
+    },
+    {
+      "nameTrack": "One After 909",
+      "nameAlbum": "Get Back",
+      "genre": "Rock",
+      "nameArtist": "The Beatles"
+    },
+    {
+      "nameTrack": "Two Of Us",
+      "nameAlbum": "Let It Be",
+      "genre": "Rock",
+      "nameArtist": "The Beatles"
+    },
+    {
+      "nameTrack": "Dig A Pony",
+      "nameAlbum": "Let It Be",
+      "genre": "Rock",
+      "nameArtist": "The Beatles"
+    },
+    {
+      "nameTrack": "Across The Universe",
+      "nameAlbum": "Let It Be",
+      "genre": "Rock",
+      "nameArtist": "The Beatles"
+    },
+    {
+      "nameTrack": "Dig It",
+      "nameAlbum": "Let It Be",
+      "genre": "Rock",
+      "nameArtist": "The Beatles"
+    },
+    {
+      "nameTrack": "Last One Standing",
+      "nameAlbum": "Last One Standing",
+      "genre": "Hip-hop",
+      "nameArtist": "Eminem"
+    },
+    {
+      "nameTrack": "Venom",
+      "nameAlbum": "Last One Standing",
+      "genre": "Hip-hop",
+      "nameArtist": "Eminem"
+    },
+    {
+      "nameTrack": "Premonition",
+      "nameAlbum": "Music To Be Murdered By",
+      "genre": "Hip-hop",
+      "nameArtist": "Eminem"
+    },
+    {
+      "nameTrack": "Alfred",
+      "nameAlbum": "Music To Be Murdered By",
+      "genre": "Hip-hop",
+      "nameArtist": "Eminem"
+    },
+    {
+      "nameTrack": "In Too Deep",
+      "nameAlbum": "Music To Be Murdered By",
+      "genre": "Hip-hop",
+      "nameArtist": "Eminem"
+    },
+    {
+      "nameTrack": "Darkness",
+      "nameAlbum": "Music To Be Murdered By",
+      "genre": "Hip-hop",
+      "nameArtist": "Eminem"
+    },
+    {
+      "nameTrack": "Tear It Up",
+      "nameAlbum": "Live Around The World",
+      "genre": "Rock",
+      "nameArtist": "Queen"
+    },
+    {
+      "nameTrack": "Now I'm Here",
+      "nameAlbum": "Live Around The World",
+      "genre": "Rock",
+      "nameArtist": "Queen"
+    },
+    {
+      "nameTrack": "Fat Bottomed Girs",
+      "nameAlbum": "Live Around The World",
+      "genre": "Rock",
+      "nameArtist": "Queen"
+    },
+    {
+      "nameTrack": "Under Pressur",
+      "nameAlbum": "Live Around The World",
+      "genre": "Rock",
+      "nameArtist": "Queen"
+    },
+    {
+      "nameTrack": "Ogre Battle",
+      "nameAlbum": "A Night At The Odeon",
+      "genre": "Rock",
+      "nameArtist": "Queen"
+    },
+    {
+      "nameTrack": "White Queene",
+      "nameAlbum": "A Night At The Odeon",
+      "genre": "Rock",
+      "nameArtist": "Queen"
+    },
+    {
+      "nameTrack": "Killer Queen",
+      "nameAlbum": "A Night At The Odeon",
+      "genre": "Rock",
+      "nameArtist": "Queen"
+    },
+    {
+      "nameTrack": "Liar",
+      "nameAlbum": "A Night At The Odeon",
+      "genre": "Rock",
+      "nameArtist": "Queen"
+    },
+    {
+      "nameTrack": "Bad",
+      "nameAlbum": "Bad",
+      "genre": "Rock",
+      "nameArtist": "Michael Jackson"
+    },
+    {
+      "nameTrack": "Liar",
+      "nameAlbum": "A Night At The Odeon",
+      "genre": "Rock",
+      "nameArtist": "Michael Jackson"
+    },
+    {
+      "nameTrack": "One Day In Your Life",
+      "nameAlbum": "Forever, Michael",
+      "genre": "Rock",
+      "nameArtist": "Michael Jackson"
+    },
+    {
+      "nameTrack": "Cinderella Stay Awhile",
+      "nameAlbum": "Forever, Michael",
+      "genre": "Rock",
+      "nameArtist": "Michael Jackson"
+    },
+    {
+      "nameTrack": "Dapper Dan",
+      "nameAlbum": "Forever, Michael",
+      "genre": "Rock",
+      "nameArtist": "Michael Jackson"
+    },
+    {
+      "nameTrack": "Intro",
+      "nameAlbum": "Madame X",
+      "genre": "Pop",
+      "nameArtist": "Madonna"
+    },
+    {
+      "nameTrack": "God Control",
+      "nameAlbum": "Madame X",
+      "genre": "Pop",
+      "nameArtist": "Madonna"
+    },
+    {
+      "nameTrack": "God Control",
+      "nameAlbum": "Madame X",
+      "genre": "Pop",
+      "nameArtist": "Madonna"
+    },
+    {
+      "nameTrack": "Dark Ballet",
+      "nameAlbum": "Madame X",
+      "genre": "Pop",
+      "nameArtist": "Madonna"
+    },
+    {
+      "nameTrack": "Fever",
+      "nameAlbum": "Justify My Love",
+      "genre": "Pop",
+      "nameArtist": "Madonna"
+    },
+    {
+      "nameTrack": "Vogue",
+      "nameAlbum": "Justify My Love",
+      "genre": "Pop",
+      "nameArtist": "Madonna"
+    },
+    {
+      "nameTrack": "In This Live",
+      "nameAlbum": "Justify My Love",
+      "genre": "Pop",
+      "nameArtist": "Madonna"
+    },
+    {
+      "nameTrack": "Rain",
+      "nameAlbum": "Justify My Love",
+      "genre": "Pop",
+      "nameArtist": "Madonna"
+    },
+    {
+      "nameTrack": "Seven Bridges Road",
+      "nameAlbum": "Live From The Forum MMXVIII",
+      "genre": "Rock",
+      "nameArtist": "Eagles"
+    },
+    {
+      "nameTrack": "Take It Eas",
+      "nameAlbum": "Live From The Forum MMXVIII",
+      "genre": "Rock",
+      "nameArtist": "Eagles"
+    },
+    {
+      "nameTrack": "Ol' 55",
+      "nameAlbum": "Live From The Forum MMXVIII",
+      "genre": "Rock",
+      "nameArtist": "Eagles"
+    },
+    {
+      "nameTrack": "Love Will Keep Us Alive",
+      "nameAlbum": "Live From The Forum MMXVIII",
+      "genre": "Rock",
+      "nameArtist": "Eagles"
+    },
+    {
+      "nameTrack": "Dj Introduction",
+      "nameAlbum": "Don Kirshner's Rock Concert 1974",
+      "genre": "Rock",
+      "nameArtist": "Eagles"
+    },
+    {
+      "nameTrack": "Peaceful Easy Feeling",
+      "nameAlbum": "Don Kirshner's Rock Concert 1974",
+      "genre": "Rock",
+      "nameArtist": "Eagles"
+    },
+    {
+      "nameTrack": "Already Gone",
+      "nameAlbum": "Don Kirshner's Rock Concert 1974",
+      "genre": "Rock",
+      "nameArtist": "Eagles"
+    },
+    {
+      "nameTrack": "Twenty One",
+      "nameAlbum": "Don Kirshner's Rock Concert 1974",
+      "genre": "Rock",
+      "nameArtist": "Eagles"
     }
   ]
 }
