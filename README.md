@@ -1,4 +1,4 @@
-# Music-catalog
+# Music catalog
 Музыкальный каталог с использоованием Windows Form
 
 ## Функционал
