@@ -9,55 +9,79 @@ namespace Lab_1
 {
     public class SearchEngine
     {
-        public Artist searchArtist(List<Artist> artists, string _artist)
+        internal  dynamic? findItems;
+        public bool searchArtist(List<Artist> artists, string _artist)
         {
             foreach (var artist in artists) 
             {
                 if (artist.nameArtist.ToLower() == _artist.ToLower())
-                    return artist;
+                {
+                    this.findItems = artist;
+                    return true;
+                }
             }
-            return null;
+            return false;
         }
 
-        public Album searchAlbum(List<Album> albums, string _album)
+        public bool searchAlbum(List<Album>? albums, string _album)
         {
             foreach (var album in albums)
             {
                 if (album.nameAlbum.ToLower() == _album.ToLower())
-                    return album;
+                {
+                    this.findItems = album;
+                    return true;
+                }
+
             }
-            return null;
+            return false;
         }
 
-        public Track searchTrack(List<Track> tracks, string _track)
+        public bool searchTrack(List<Track> tracks, string _track)
         {
             foreach (var track in tracks)
             {
                 if (track.nameTrack.ToLower() == _track.ToLower())
-                    return track;
+                {
+                    this.findItems = track;
+                    return true;
+                }
             }
-            return null;
+            return false;
         }
 
-        public List<Track> searchTrackWithGenre(List<Track> tracks, string _genre)
+        public bool searchTrackWithGenre(List<Track> tracks, string _genre)
         {
             List<Track> result = new List<Track>();
+
             foreach (var track in tracks)
             {
                 if (track.genre.ToLower() == _genre.ToLower())
+                {
                     result.Add(track);
+                }
+                
             }
             if (result.Count > 0)
-                return result;
-            return null;
+            {
+                this.findItems = null;
+                this.findItems = result;
+                return true;
+            }
+            return false;
         }
 
-        public Collection searchCollection(List<Collection> collections, string _collection)
+        public bool searchCollection(List<Collection> collections, string _collection)
         {
             foreach (var collection in collections)
-                if (collection.nameCollection == _collection) 
-                    return collection;
-            return null;
+            {
+                if (collection.nameCollection.ToLower() == _collection.ToLower())
+                {
+                    this.findItems = collection;
+                    return true;
+                }
+            }
+            return false;
         }
         
     }

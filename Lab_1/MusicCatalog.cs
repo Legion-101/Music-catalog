@@ -9,91 +9,129 @@ namespace Lab_1
     {
         DataMusicCatalog items = new DataMusicCatalog();
 
-        
-        public MusicCatalog()
+        Database database = new Database();
+
+        internal void catalogTreeViewArtist(Database database, bool save)
         {
-            Database database = new Database();
-            List<Artist> artist = database.GetArtists();
-            //List<Album> album = database.GetAlbumArtist(artist[0].nameArtist);
-           
-            InitializeComponent();
-            foreach(Artist artistItem in artist)
+            List<Artist>? artists = database.GetArtists();
+
+            foreach (Artist artistItem in artists)
             {
-                treeView1.Nodes.Add(artistItem.nameArtist);
-                List<Album> album = database.GetAlbumArtist(artistItem.nameArtist);
-                foreach(Album albumItem in album)
+                treeView1.Nodes.Add(artistItem.nameArtist, artistItem.nameArtist);
+                List<Album>? albums = database.GetAlbumArtist(artistItem.nameArtist);
+                if (save)
+                    items.Artists.Add(artistItem);
+                foreach (Album albumItem in albums)
                 {
-                    treeView1.Nodes[artistItem.nameArtist].Nodes.Add(albumItem.nameAlbum);
+                    treeView1.Nodes[artistItem.nameArtist].Nodes.Add(albumItem.nameAlbum, albumItem.nameAlbum);
+                    List<Track>? Tracks = database.GetTracksAlbum(albumItem.nameAlbum);
+                    if (save)
+                        items.Albums.Add(albumItem);
+                    foreach (Track track in Tracks)
+                    {
+                        treeView1.Nodes[artistItem.nameArtist].Nodes[albumItem.nameAlbum].Nodes.Add(track.nameTrack, track.nameTrack);
+                        if (save)
+                            items.Tracks.Add(track);
+                    }
                 }
             }
-            //using (StreamReader r = new StreamReader("../../../data.json"))
-            //{
-            //    string json = r.ReadToEnd();
-            //    items = JsonConvert.DeserializeObject<DataMusicCatalog>(json);
-            //}
-            //// Print data about Artist
-            //for (int i = 0; i < items.Artists.Count; i++)
-            //{
-            //    for (int j = 0; j < items.Albums.Count; j++)
-            //    {
-            //        if (treeView1.Nodes[i].Text == items.Albums[j].nameArtist)
-            //        {
-            //            treeView1.Nodes[i].Nodes.Add(items.Albums[j].nameAlbum);
-            //        }
-            //        else continue;
-            //    }
-            //    for (int k = 0; k < treeView1.Nodes[i].Nodes.Count;)
-            //    {
-            //        foreach (Track track in items.Albums[k].tracks)
-            //        {
-            //            if (treeView1.Nodes[i].Nodes[k].Text == items.Albums[k].nameAlbum)
-            //                treeView1.Nodes[i].Nodes[k].Nodes.Add(track.nameTrack);
-            //            else continue;
-            //        }
-            //    }
+        }
 
-            //}
-            //// Print data about collections
-            //for (int i = 0; i < items.Collections.Count; i++)
-            //{
-            //    treeViewCollections.Nodes.Add(items.Collections[i].nameCollection);
-            //    //treeViewCollections.Nodes[i].Nodes.Add(items.Collections[i].tracks[i].genre);
-            //    for (int j = 0; j < items.Collections[i].tracks.Count; j++)
-            //    {
-            //        treeViewCollections.Nodes[i].Nodes.Add(items.Collections[i].tracks[j].nameTrack);
-            //    }
-            //}
+        internal void catalogTreeViewCollections(Database database, bool save)
+        {
+            List<Collection>? collections = database.GetCollections();
+            if (save)
+                items.Collections = collections;
+            int count = 0;
+            foreach (var collection in collections)
+            {
+                treeViewCollections.Nodes.Add(collection.nameCollection, collection.nameCollection);
+                List<Track>? Tracks = database.GetTracksCollection(collection.nameCollection);
+                if (save)
+                    items.Collections[count].tracks = Tracks;
+                count++;
+                foreach (var track in Tracks)
+                {
+                    treeViewCollections.Nodes[collection.nameCollection].Nodes.Add(track.nameTrack, track.nameTrack);
+                }
+            }
+        }
 
+        public MusicCatalog()
+        {
+            InitializeComponent();
+            catalogTreeViewArtist(database, true);
+            catalogTreeViewCollections(database, true);
         }
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
             string value = textBoxSearch.Text;
             SearchEngine searchEngine = new SearchEngine();
-            if (searchEngine.searchArtist(items.Artists, value) != null)
+            if (textBoxSearch.Text == "")
             {
-                treeView1.Visible = false;
                 treeView1.Nodes.Clear();
-            } else if (searchEngine.searchAlbum(items.Albums, value) != null)
-            {
-                treeView1.Visible = false;
-            } else if (searchEngine.searchTrack(items.Tracks, value) != null)
-            {
-                treeView1.Visible = false;
-            } else if (searchEngine.searchCollection(items.Collections, value) != null)
-            {
-                treeView1.Visible = false;
-            } else if (searchEngine.searchTrackWithGenre(items.Tracks, value) != null)
-            {
-                treeView1.Visible = false;
+                treeViewCollections.Nodes.Clear();
+                catalogTreeViewArtist(database, false);
+                catalogTreeViewCollections(database, false);
+                searchEngine.findItems = null;
+                return;
             }
-            else
+
+            if (searchEngine.searchArtist(items.Artists, value))
+            {
+                treeView1.Nodes.Clear();
+                treeViewCollections.Nodes.Clear();
+                treeView1.Nodes.Add(searchEngine.findItems.nameArtist, searchEngine.findItems.nameArtist);
+                return;
+            }
+
+            if (searchEngine.searchAlbum(items.Albums, value))
+            {
+                treeView1.Nodes.Clear();
+                treeView1.Nodes.Add(searchEngine.findItems.nameArtist, searchEngine.findItems.nameArtist);
+                treeView1.Nodes[searchEngine.findItems.nameArtist].Nodes.Add(searchEngine.findItems.nameAlbum, searchEngine.findItems.nameAlbum);
+                if (searchEngine.searchTrack(items.Tracks, value))
+                {
+                    treeView1.Nodes[searchEngine.findItems.nameArtist].Nodes[searchEngine.findItems.nameAlbum].Nodes.Add(searchEngine.findItems.nameTrack);
+                }
+                treeView1.ExpandAll();
+            }
+            else if (searchEngine.searchTrack(items.Tracks, value))
+            {
+                treeView1.Nodes.Clear();
+                treeView1.Nodes.Add(searchEngine.findItems.nameArtist, searchEngine.findItems.nameArtist);
+                treeView1.Nodes[searchEngine.findItems.nameArtist].Nodes.Add(searchEngine.findItems.nameAlbum, searchEngine.findItems.nameAlbum);
+                treeView1.Nodes[searchEngine.findItems.nameArtist].Nodes[searchEngine.findItems.nameAlbum].Nodes.Add(searchEngine.findItems.nameTrack);
+                treeView1.ExpandAll();
+            }
+            else if (searchEngine.searchTrackWithGenre(items.Tracks, value))
+            {
+                treeView1.Nodes.Clear();
+                foreach (var item in searchEngine.findItems)
+                {
+                    treeView1.Nodes.Add(item.nameTrack, item.nameTrack);
+                }
+                treeView1.ExpandAll();
+            }
+
+            if (searchEngine.searchCollection(items.Collections, value))
+            {
+                treeViewCollections.Nodes.Clear();
+                treeViewCollections.Nodes.Add(searchEngine.findItems.nameCollection, searchEngine.findItems.nameCollection);
+                foreach (var track in searchEngine.findItems.tracks)
+                {
+                    treeViewCollections.Nodes[searchEngine.findItems.nameCollection].Nodes.Add(track.nameTrack);
+                }
+                treeViewCollections.ExpandAll();
+            }
+
+            if (searchEngine.findItems == null)
             {
                 textBoxSearch.Text = $"Значение {value} не найдено";
+                treeView1.Nodes.Clear();
+                treeViewCollections.Nodes.Clear();
             }
 
         }
-
-
-
     }
 }

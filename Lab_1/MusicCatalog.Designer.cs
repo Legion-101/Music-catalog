@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MusicCatalog));
             treeView1 = new TreeView();
             label1 = new Label();
             label2 = new Label();
@@ -47,7 +48,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 102);
+            label1.Location = new Point(12, 108);
             label1.Name = "label1";
             label1.Size = new Size(162, 20);
             label1.TabIndex = 2;
@@ -56,7 +57,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(456, 108);
+            label2.Location = new Point(449, 108);
             label2.Name = "label2";
             label2.Size = new Size(139, 20);
             label2.TabIndex = 3;
@@ -71,7 +72,7 @@
             // 
             // textBoxSearch
             // 
-            textBoxSearch.Location = new Point(12, 40);
+            textBoxSearch.Location = new Point(12, 32);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.Size = new Size(631, 27);
             textBoxSearch.TabIndex = 5;
@@ -99,6 +100,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.music_update_1536x864;
             ClientSize = new Size(800, 450);
             Controls.Add(buttonSearch);
             Controls.Add(label3);
@@ -107,6 +109,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(treeView1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MusicCatalog";
             Text = "Music Catalog";
             ResumeLayout(false);

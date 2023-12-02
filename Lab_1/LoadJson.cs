@@ -14,5 +14,13 @@ namespace Lab_1
         public List<Album> Albums;
         public List<Collection> Collections;
         public List<Track> Tracks;
+
+        internal DataMusicCatalog() 
+        {
+            Artists = new List<Artist>();
+            Albums = new List<Album>();
+            Collections = new List<Collection>();
+            Tracks = new List<Track>();
+        }
     }
 }
